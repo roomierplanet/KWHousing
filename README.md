@@ -1,1 +1,1 @@
-THis project is current a work in progress
+THis project is currently a work in progress
