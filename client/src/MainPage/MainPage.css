@@ -11,7 +11,7 @@ nav {
     align-items: center;
 }
 
-#logo {
+nav #logo {
     height: 5rem;
     flex-direction: row;
     margin-left: 2rem;
@@ -24,7 +24,7 @@ nav {
 }
 
 @media only screen and (max-width: 1000px) {
-    #logo {
+    nav #logo {
         display: none;
     }
 }
