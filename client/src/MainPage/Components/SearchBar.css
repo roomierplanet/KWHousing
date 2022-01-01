@@ -1,0 +1,19 @@
+.SearchBar {
+    width: 50rem;
+    margin: 0 auto;
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.SearchBar input {
+    width: 100%;
+    height: 3rem;
+    outline: none;
+    border: none;
+    border-radius: 0.3rem;
+    background-color: #e1dfdf;
+    font-size: 1rem;
+    font-family: 'Poppins';
+    font-weight: 400;
+    padding-left: 1rem;
+}

@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.canvas {
+    background-image: url('../public/LPage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+#logo {
+    height: 8rem;
+}
+
+#title {
+    font-family: 'Poppins';
+    font-weight: 700;
+    color: white;
+    font-size: 4rem;
+    margin-top: 1rem;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
+}
+
+.btn {
+    margin-top: 2rem;
+    height: 3rem;
+    width: 20rem;
+    border-radius: 1.5rem;
+    outline: none;
+    border: none;
+    background: rgb(222,85,20);
+    background: linear-gradient(0deg, rgba(222,85,20,1) 0%, rgba(231,150,41,1) 100%);
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0.1rem 1.2rem rgba(0, 0, 0, 0.59);
+}
+
+@media only screen and (max-width: 820px) {
+    h1 {
+        font-size: 2rem;
+    }
+    .btn {
+        width: 14rem;
+    }
+}
