@@ -1,0 +1,21 @@
+.add-property {
+    display: flex;
+    align-items: center;
+    height: 4rem;
+    justify-content: center;
+    margin-top: 1.4rem;
+}
+.add-property button {
+    width: 18rem;
+    outline: none;
+    cursor: pointer;
+    height: 2.5rem;
+    border: none;
+    background-color: #46e002;
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1rem;
+    border-radius: 0.8rem;
+    box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+}

@@ -11,7 +11,7 @@ nav {
     align-items: center;
 }
 
-nav #logo {
+#nav-logo {
     height: 5rem;
     flex-direction: row;
     margin-left: 2rem;
@@ -19,12 +19,9 @@ nav #logo {
     justify-self: flex-start;
 }
 
-.mainPage {
-    position: relative;
-}
 
 @media only screen and (max-width: 1000px) {
-    nav #logo {
+    #nav-logo {
         display: none;
     }
 }
