@@ -56,11 +56,11 @@ Properties.get('/:id', async (req, res) => {
 
 Properties.post('/', async (req, res) => {
     try {
-        const {name, address, rent_corp} = req.query;
-        if (!name || !address || !rent_corp) {
+        const {name, address, rent_corp, img_url} = req.body;
+        if (!name || !address || !rent_corp || !img_url) {
             throw new Error('Incomplete information provided!');
         }
-        await db.query('INSERT INTO properties(name, address, rent_corp) VALUES($1, $2, $3)', [name, address, rent_corp]);
+        await db.query('INSERT INTO properties(name, address, rent_corp, img_url) VALUES($1, $2, $3, $4)', [name, address, rent_corp, img_url]);
         res.status(200).json({
             status: "success"
         });
@@ -72,9 +72,9 @@ Properties.post('/', async (req, res) => {
 Properties.put('/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const {name, address, rent_corp} = req.query;
-        const results = await db.query('UPDATE properties SET name = $1, address = $2, rent_corp = $3 WHERE id = $4', [name, address, rent_corp, id]);
-        if (!name || !address || !rent_corp) throw new Error('Wrong information provided');
+        const {name, address, rent_corp, img_url} = req.body;
+        const results = await db.query('UPDATE properties SET name = $1, address = $2, rent_corp = $3, img_url = $4 WHERE id = $5', [name, address, rent_corp, img_url, id]);
+        if (!name || !address || !rent_corp || !img_url) throw new Error('Wrong information provided');
         if (results.rowCount === 0) throw new Error('Invalid ID provided');
         res.status(200).json({
             status: "success"
