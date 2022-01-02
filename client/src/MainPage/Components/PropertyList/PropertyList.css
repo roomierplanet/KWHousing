@@ -14,10 +14,16 @@
     width: 90%;
     height: 15rem;
     border-radius: 0.8rem;
-    background-color: rgb(56, 56, 56);
-    box-shadow: 0 0.8rem 1.5rem rgba(0,0,0,0.6);
+    background-color: rgb(39, 39, 39);
     display: flex;
     /* border: 1px solid blue; */
+    box-shadow: 0 0.6rem 1.5rem rgba(0,0,0,0.4);
+    cursor: pointer;
+}
+
+.property:hover {
+    background-color: rgb(56, 56, 56);
+    transition: background-color 0.4s ease-in;
 }
 
 .property-image {

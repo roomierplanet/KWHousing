@@ -12,12 +12,17 @@
     height: 2.5rem;
     border: none;
     background-color: #46e002;
+    box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
     color: white;
     font-family: 'Poppins';
     font-weight: 400;
     font-size: 1rem;
     border-radius: 0.8rem;
-    box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+}
+
+.add-property button:hover {
+    background-color: #49f002;
+    transition: background-color 0.5s ease-in-out;
 }
 
 .overlay {
