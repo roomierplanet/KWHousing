@@ -16,7 +16,7 @@ function PropertyList() {
             }
         }
         fetchData();
-    }, []);
+    }, [setProperties]);
     return (
         <div className="properties-container">
             {properties? properties.map(property => {
