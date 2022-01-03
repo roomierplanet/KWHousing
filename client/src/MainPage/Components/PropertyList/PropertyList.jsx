@@ -20,7 +20,7 @@ function PropertyList() {
     return (
         <div className="properties-container">
             {properties? properties.map(property => {
-                return <Property key={property.id} name={property.name} address={property.address} src={property.img_url} />
+                return <Property key={property.id} id={property.id} name={property.name} address={property.address} src={property.img_url} />
             }) : console.log("loading for now")}
 
         </div>

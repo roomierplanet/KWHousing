@@ -1,0 +1,102 @@
+.details-section {
+    box-sizing: border-box;
+    width: 100%;
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: row;
+    margin-top: 0.4rem;
+    padding: 2rem;
+    align-items: center;
+}
+
+.details-section .image {
+    box-sizing: inherit;
+    width: 40%;
+    /* border: 1px solid red; */
+    padding: 1rem;
+    display: flex;
+    height: 24rem;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1rem;
+    box-shadow: 0 0.6rem 1.5rem rgba(0,0,0,0.2);
+}
+
+.property-details {
+    font-family: 'Poppins';
+    padding: 0.8rem;
+    margin-left: 0.8rem;
+    margin-top: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    /* border: 1px solid cyan; */
+}
+
+#property-name {
+    font-size: 2.6rem;
+}
+
+#property-rent-corp {
+    font-weight: 500;
+    margin-top: 0.3rem;
+}
+
+#property-address {
+    font-weight: 300;
+    font-size: 1.4rem;
+    margin-top: 0.3rem;
+}
+
+
+.actions {
+    margin-top: 2rem;
+    width: 70%;
+    /* border: 1px solid black; */
+    display: flex;
+    justify-content: space-between;
+}
+
+#update-property {
+    width: 45%;
+    height: 2.8rem;
+    border: none;
+    background-color: #006cff;
+    color: white;
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+#delete-property {
+    width: 45%;
+    height: 2.8rem;
+    border: none;
+    background-color: #ff004e;
+    color: white;
+    font-family: 'Poppins';
+    font-size: 1.2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+#delete-modal {
+    margin: 0 auto;
+    height: 10rem;
+    width: 30rem;
+    background-color: #eeeeee;
+    padding: 1.5rem;
+    border-radius: 1.3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+#confirmation{
+    font-family: 'Poppins';
+    margin-top: 0.5rem;
+}

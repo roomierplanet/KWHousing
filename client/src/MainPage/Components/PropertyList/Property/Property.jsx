@@ -1,8 +1,15 @@
 import React from 'react'
+import {useNavigate} from 'react-router-dom';
 
 function Property(props) {
+    let navigate = useNavigate()
+    const displayDetails = e => {
+        console.log("displayDetails called");
+        const id = props.id;
+        navigate(`/properties/${id}`);
+    }
     return (
-        <div className="property">
+        <div className="property" onClick={displayDetails}>
             <div className="property-image">
                 <img src={props.src} alt=""/>
             </div>

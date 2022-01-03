@@ -7,6 +7,13 @@ const getProperties = {
         const result = jsonResponse.data.properties;
         return result;
     },
+    async getPropertyById(id) {
+        const newURL = `${baseURL}/${id}`;
+        const response = await fetch(newURL);
+        const jsonResponse = await response.json();
+        const result = jsonResponse.data.property;
+        return result; 
+    },
     async addProperty(property) {
         const {name, address, rent_corp, img_url} = property;
         const body = {
@@ -21,7 +28,31 @@ const getProperties = {
             body: JSON.stringify(body)
         });
         const result = await response.json();
-        console.log(result);
+        return result;
+    },
+    async updateProperty(id, property) {
+        const {name, address, rent_corp, img_url} = property;
+        const body = {
+            name,
+            address,
+            rent_corp,
+            img_url
+        };
+        const newURL = `${baseURL}/${id}`;
+        const response = await fetch(newURL, {
+            method: 'PUT',
+            headers: {"Content-type": "application/json; charset=UTF-8"},
+            body: JSON.stringify(body)
+        });
+        const result = await response.json();
+        return result;
+    },
+    async deleteProperty(id) {
+        const newURL = `${baseURL}/${id}`;
+        const response = await fetch(newURL, {
+            method: 'DELETE'
+        });
+        const result = await response.json();
         return result;
     }
 }
