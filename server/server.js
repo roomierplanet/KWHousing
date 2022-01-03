@@ -96,6 +96,63 @@ Properties.delete('/:id', async (req, res) => {
     }
 });
 
+const Reviews = express.Router();
+
+app.use('/api/v1/reviews', Reviews);
+
+Reviews.get('/', async (req, res) => {
+    try {
+        const result = await db.query('SELECT * FROM reviews');
+        const {rows} = result;
+        res.status(200).json({
+            status: 'success',
+            results: rows.length,
+            data: {
+                reviews: rows
+            }
+        }); 
+    } catch(err) {
+        res.status(404).send(err.message);
+    }
+})
+
+Reviews.get('/:id', async (req, res) => {
+    try {
+        const id = req.params.id;
+        const results = await db.query('SELECT * FROM reviews WHERE id = $1', [id]);
+        const {rows} = results;
+        if (results.rowCount === 0) {
+            throw new Error('This review cannot be retrieved!');
+        }
+        res.status(200).json({
+            status: "success",
+            results: rows.length,
+            data: {
+                property: rows[0]
+            }
+        });
+    } catch(err) {
+        res.status(404).send(err.message);
+    }
+});
+
+Reviews.post('/', async (req, res) => {
+    try {
+        const {name, rating, review, property_id} = req.body;
+        if (!name || !rating || !property_id) throw new Error('Incomplete/Invalid information provided');
+        if (!review) {
+            await db.query('INSERT INTO reviews(name, rating, property_id) VALUES($1, $2, $3)', [name, rating, property_id]);
+        } else {
+            await db.query('INSERT INTO reviews(name, rating, review, property_id) VALUES($1, $2, $3, $4)', [name, rating, review, property_id]);
+        }
+        res.status(200).json({
+            status: "success"
+        });
+    } catch(err) {
+        res.status(404).send(err.message);
+    }
+})
+
 app.listen(port, () => {
     console.log('Server listening on port '+ port);
 });

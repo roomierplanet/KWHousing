@@ -43,5 +43,26 @@ VALUES (
     'Icon 330',
     '252 Philip St., N2L 3W9, Waterloo',
     'Icon',
-    'https://lh3.googleusercontent.com/proxy/QFAOXU1oubJrVMa2F-M7Gk1vAegg2a4e6IW7QofKAlK30CshXsRxTRT2twso1Ve69OYaE63fcueKABFLeOvY33qlZ7_DqLJb_4ctzMF-dwpn60bYY9sopZ3BMcE4dEjKwtFmWpek9g-F7e3CyF1UXbemQ5Wh9et9axr0wqWHTnXNFbArIhuSbf0ocHjp4diLP7oQLqb_'
+    'https://lh3.googleusercontent.com/proxy/I-wPbWLA_Aouy3cECcRIOnexa2Y6HAVYDn8MOnsqqbRU-EuU12iLwdnsTXWxSg98qpwsew6tUCXEFar8v__PcSDPpIi6g891hfv4xT8FZAZNf13gcUM_P3r6co9TSj6kyBtt0vIwQyfoM3ZO2kFuHRX_Uyf06mrF9HxIPXMmluCzr49IHJPTXtaLSTpnh-oxx-ldHcQ4'
 );
+
+CREATE TABLE reviews (
+    id BIGSERIAL PRIMARY KEY,
+    name varchar(100) NOT NULL,
+    rating integer CHECK(rating >= 1 AND rating <= 5) NOT NULL,
+    review text,
+    review_date date NOT NULL DEFAULT CURRENT_DATE,
+    property_id bigint REFERENCES properties(id) NOT NULL
+);
+
+INSERT INTO reviews (name, rating, review, property_id) 
+VALUES ('Arnav Nagpal', 4, 'Sweet people, study rooms are pretty cool, and the location is great!', 1);
+
+
+INSERT INTO reviews (name, rating, review, property_id) 
+VALUES ('Shaan Mehta', 3, 'Good place it''s nice to live with my friend Arnav here. OMG so this one day the craziest thing happened. 
+I was so excited to move in and they gave us all free pizza. The pizza was absolutely DELICIOUS. I ate the hell out of it and
+couldn''t move for an hour! Best reason to live here!!', 1);
+
+INSERT INTO reviews (name, rating, review, property_id) 
+VALUES ('Ameya Dehade', 5, 'Just adding more reviews here!', 1);
