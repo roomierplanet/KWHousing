@@ -43,7 +43,7 @@ VALUES (
     'Icon 330',
     '252 Philip St., N2L 3W9, Waterloo',
     'Icon',
-    'https://lh3.googleusercontent.com/proxy/I-wPbWLA_Aouy3cECcRIOnexa2Y6HAVYDn8MOnsqqbRU-EuU12iLwdnsTXWxSg98qpwsew6tUCXEFar8v__PcSDPpIi6g891hfv4xT8FZAZNf13gcUM_P3r6co9TSj6kyBtt0vIwQyfoM3ZO2kFuHRX_Uyf06mrF9HxIPXMmluCzr49IHJPTXtaLSTpnh-oxx-ldHcQ4'
+    'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.under-thesun.ca%2F2019%2F08%2Ficon.html&psig=AOvVaw3x98vXDzo0R1BgoCjHqeuL&ust=1641360413524000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPjF75Wul_UCFQAAAAAdAAAAABAJ'
 );
 
 CREATE TABLE reviews (
@@ -52,11 +52,11 @@ CREATE TABLE reviews (
     rating integer CHECK(rating >= 1 AND rating <= 5) NOT NULL,
     review text,
     review_date date NOT NULL DEFAULT CURRENT_DATE,
-    property_id bigint REFERENCES properties(id) NOT NULL
+    property_id bigint REFERENCES properties(id) NOT NULL ON DELETE CASCADE
 );
 
 INSERT INTO reviews (name, rating, review, property_id) 
-VALUES ('Arnav Nagpal', 4, 'Sweet people, study rooms are pretty cool, and the location is great!', 1);
+VALUES ('Arnav Nagpal', 4, 'Sweet people, study rooms are pretty cool, and the location is great!', 26);
 
 
 INSERT INTO reviews (name, rating, review, property_id) 

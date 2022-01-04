@@ -116,10 +116,10 @@ Reviews.get('/', async (req, res) => {
     }
 })
 
-Reviews.get('/:id', async (req, res) => {
+Reviews.get('/:property_id', async (req, res) => {
     try {
-        const id = req.params.id;
-        const results = await db.query('SELECT * FROM reviews WHERE id = $1', [id]);
+        const {property_id} = req.params;
+        const results = await db.query('SELECT * FROM reviews WHERE property_id = $1', [property_id]);
         const {rows} = results;
         if (results.rowCount === 0) {
             throw new Error('This review cannot be retrieved!');
@@ -128,7 +128,7 @@ Reviews.get('/:id', async (req, res) => {
             status: "success",
             results: rows.length,
             data: {
-                property: rows[0]
+                reviews: rows
             }
         });
     } catch(err) {
