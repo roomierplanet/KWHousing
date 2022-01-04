@@ -52,11 +52,17 @@ CREATE TABLE reviews (
     rating integer CHECK(rating >= 1 AND rating <= 5) NOT NULL,
     review text,
     review_date date NOT NULL DEFAULT CURRENT_DATE,
-    property_id bigint REFERENCES properties(id) NOT NULL ON DELETE CASCADE
+    property_id bigint NOT NULL
 );
 
+ALTER TABLE reviews
+ADD CONSTRAINT reviews_property_id_fkey
+FOREIGN KEY(property_id)
+REFERENCES properties(id)
+ON DELETE CASCADE;
+
 INSERT INTO reviews (name, rating, review, property_id) 
-VALUES ('Arnav Nagpal', 4, 'Sweet people, study rooms are pretty cool, and the location is great!', 26);
+VALUES ('Arnav Nagpal', 4, 'Sweet people, study rooms are pretty cool, and the location is great!', 5);
 
 
 INSERT INTO reviews (name, rating, review, property_id) 
