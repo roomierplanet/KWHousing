@@ -1,5 +1,6 @@
 import React from 'react'
 import {useNavigate} from 'react-router-dom';
+import Rating from '../../Rating/Rating';
 
 function Property(props) {
     let navigate = useNavigate()
@@ -16,8 +17,8 @@ function Property(props) {
             <div className="property-details">
                 <h2 id="name">{props.name}</h2>
                 <h3 id="address">{props.address}</h3>
-                <p id="rating">Rating</p>
-                <p id="num-reviews">93 Reviews</p>
+                <Rating rating={props.rating}/>
+                <p id="num-reviews">{props.numReviews} Reviews</p>
             </div>
         </div>
     )

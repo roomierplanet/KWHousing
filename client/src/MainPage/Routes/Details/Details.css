@@ -100,3 +100,120 @@
     font-family: 'Poppins';
     margin-top: 0.5rem;
 }
+
+.reviews-container {
+    width: 100%;
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-direction: column;
+}
+
+.review-section {
+    margin-bottom: 1.5rem;
+}
+
+.review-header {
+    margin-left: 3rem;
+    font-family: 'Poppins';
+}
+
+.review-header h1 {
+    font-size: 2.4rem;
+    margin-bottom: -0.5rem;
+}
+
+
+.review-header #rating {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.review-header #rating h2 {
+    font-weight: 500;
+}
+
+#numratings{
+    font-weight: 500;
+}
+
+.divider {
+    height: 0.7rem;
+    width: 30%;
+    background-color: black;
+    margin: 1rem 1rem 2rem 0rem;
+}
+
+.rating-container {
+    margin-top: -0.6rem;
+ display: flex;
+ align-items: center;
+ margin-right: 0.8rem;
+}
+
+.add-review {
+    margin-left: 3rem;
+    margin-bottom: 2rem;
+}
+
+.add-review button {
+    width: 14%;
+    outline: none;
+    cursor: pointer;
+    height: 3rem;
+    border: none;
+    background-color: #46e002;
+    box-shadow: 0 0.2rem 1.2rem rgba(0,0,0,0.2);
+    color: white;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1rem;
+    border-radius: 0.8rem;
+}
+
+#add-review-modal {
+    margin: 0 auto;
+    height: 31.3rem;
+    width: 60rem;
+    background-color: #eeeeee;
+    padding: 1.5rem;
+    border-radius: 1.3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.review-inp[placeholder='Your name'] {
+    width: 60%;
+}
+
+.review-inp[placeholder='Your rating'] {
+    width: 50%;
+}
+
+textarea {
+    resize: none;
+    height: 8rem !important;
+}
+
+textarea::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+textarea::-webkit-scrollbar {
+    width: 0.5rem;
+    background-color: transparent;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: rgba(92, 92, 92, 0.842);
+    border-radius: 3rem;
+}
+
+.review-labels {
+    font-family: 'Poppins';
+    margin-top: 0.8rem;
+    margin-left: 0.2rem;
+    margin-bottom: -0.3rem;
+}

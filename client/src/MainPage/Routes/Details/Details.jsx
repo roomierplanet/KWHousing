@@ -4,11 +4,18 @@ import NavBar from '../../Components/NavBar/NavBar';
 import getProperties from '../../../api/getProperties';
 import { PropertiesContext } from '../../../Context/PropertiesContext';
 import './Details.css';
+import Review from '../../Components/Review/Review';
+import Rating from '../../Components/Rating/Rating';
+import getReviews from '../../../api/getReviews';
 
 function Details() {
     const params = useParams();
     const id = Number(params.id);
     const {property, setProperty} = useContext(PropertiesContext)
+    const {review, setReview} = useContext(PropertiesContext);
+    const [updateModal, setUpdateModal] = useState(false);
+    const [deleteModal, setDeleteModal] = useState(false);
+    const [addModal, setAddModal] = useState(false);
     useEffect(() => {
         const fetchProperty = async () => {
             try {
@@ -18,19 +25,42 @@ function Details() {
                 console.log(err.message);
             }
         }
+        const fetchReview = async () => {
+            try {
+                const result = await getReviews.getReviewById(id);
+                setReview(result);
+            } catch(err) {
+                setReview([]);   
+            }
+        }
         fetchProperty();
-    }, [id, setProperty]);
-    const [updateModal, setUpdateModal] = useState(false);
-    const [deleteModal, setDeleteModal] = useState(false);
+        fetchReview();
+    }, [id, setProperty, setReview, addModal]);
+    let numReviews, totalRating, avgRating;
+    if (review) {
+        console.log(review);
+        numReviews = review.length;
+        totalRating = 0;
+        for (let i = 0; i < numReviews; i++) {
+            totalRating += review[i].rating;
+        }
+        avgRating = numReviews !== 0 ? totalRating / numReviews : 0;
+    }
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
     const [rentCorp, setRentCorp] = useState("");
     const [url, setUrl] = useState("");
+    const [revName, setRevName] = useState("");
+    const [revRating, setRevRating] = useState();
+    const [revReview, setRevReview] = useState("");
     const toggleUpdateModal = () => {
         setUpdateModal(!updateModal);
     }
     const toggleDeleteModal = () => {
         setDeleteModal(!deleteModal);
+    }
+    const toggleAddModal = () => {
+        setAddModal(!addModal);
     }
     const updateHandler = async (e) => {
         const newProperty = {
@@ -45,7 +75,26 @@ function Details() {
     const navigate = useNavigate();
     const deleteHandler = (e) => {
         getProperties.deleteProperty(id);
-        setTimeout(navigate('/properties'), 60);
+        setTimeout(navigate('/properties'), 0.2);
+    }
+    const addReviewHandler = (e) => {
+        let newReview = {};
+        if (revRating) {
+            newReview = {
+                name: revName,
+                rating: revRating,
+                review: revReview,
+                property_id: property.id
+            }
+        } else {
+            newReview = {
+                name: revName,
+                rating: revRating,
+                property_id: property.id
+            }
+        }
+        getReviews.addReview(newReview);
+        toggleAddModal();
     }
     return (
         <div>
@@ -94,6 +143,53 @@ function Details() {
                     </form>
                 </div>
             </div>
+            }
+            {addModal &&
+            <div className="overlay">
+                <div className="modal" id="add-review-modal">
+                    <div className="top">
+                            <h1>Add Review</h1>
+                            <button onClick={toggleAddModal}><img src="../closeButton.png" alt="" /></button>
+                    </div>
+                    <form className='add-review-form'>
+                        <p className='review-labels'>Name<span style={{color: 'red'}}>*</span></p>
+                        <input required type='text' className='inp-field review-inp' placeholder='Your name'
+                        value={revName} onChange={e => setRevName(e.target.value)}></input>
+                        <p className='review-labels'>Rating<span style={{color: 'red'}}>*</span></p>
+                        <input required type='number' className='inp-field review-inp' placeholder='Your rating' min='1' max='5'
+                        value={revRating} onChange={e => setRevRating(e.target.value)}></input>
+                        <p className='review-labels'>Review</p>
+                        <textarea className='inp-field' placeholder='Your Review!'
+                        value={revReview} onChange={e => setRevReview(e.target.value)}></textarea>
+                        <input type="submit" value="Submit Review" style={{backgroundColor: '#46e002'}}
+                        onClick={addReviewHandler}></input>
+                    </form>
+                </div>
+            </div>
+            }
+            {property && review &&
+                <div className="review-section">
+                    <div className="review-header">
+                        <h1>Resident Reviews</h1>
+                        <div id="rating">
+                            <div className="rating-container">
+                                
+                            <Rating rating={avgRating}/>
+                            </div>
+                            <h2>{avgRating} out of 5</h2>
+                        </div>
+                        <h2 id="numratings">{numReviews} total ratings</h2>
+                        <div className="divider"></div>
+                    </div>
+                    <div className="add-review">
+                        <button onClick={toggleAddModal}>Add Review</button>
+                    </div>
+                    <div className="reviews-container">
+                        {review && review.map(r => {
+                            return <Review key={r.id} name={r.name} rating={r.rating} review={r.review} date={r.review_date}/>
+                        })}
+                    </div>
+                </div>
             }
         </div>
     )
