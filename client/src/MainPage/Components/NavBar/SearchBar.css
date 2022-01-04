@@ -5,7 +5,6 @@
     padding-left: 2rem;
     height: 10rem;
     margin: 0 auto;
-    transform: translateY(3.5rem);
 }
 
 .SearchBar input {
@@ -20,6 +19,8 @@
     font-family: 'Poppins';
     font-weight: 400;
     padding: 1rem;
+    
+    transform: translateY(3.5rem);
 }
 
 .search-results {

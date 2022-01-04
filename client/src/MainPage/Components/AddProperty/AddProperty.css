@@ -4,10 +4,11 @@
     height: 4rem;
     justify-content: center;
     margin-top: 1.4rem;
+    z-index: 1;
 }
 .add-property button {
     width: 18rem;
-    outline: none;
+    /* outline: none; */
     cursor: pointer;
     height: 2.5rem;
     border: none;
