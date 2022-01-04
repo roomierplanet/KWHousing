@@ -1,4 +1,4 @@
-const baseURL = "http://localhost:5000/api/v1/properties";
+const baseURL = "/api/v1/properties";
 
 const getProperties = {
     async getAllProperties() {

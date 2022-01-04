@@ -3,6 +3,7 @@ const cors = require('cors');
 const morgan = require('morgan');
 require('dotenv').config();
 const db = require('./db');
+const path = require('path');
 
 const app = express();
 
@@ -12,7 +13,13 @@ app.use(express.json());
 
 app.use(morgan("dev"));
 
-const port = process.env.PORT;
+// app.use(express.static(path.join(__dirname, "/client/build")));
+
+const port = process.env.PORT || 5000;
+
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static(path.join(__dirname, "/client/build")));
+}
 
 const Properties = express.Router();
 
@@ -151,6 +158,14 @@ Reviews.post('/', async (req, res) => {
     } catch(err) {
         res.status(404).send(err.message);
     }
+})
+
+const ResetRouter = express.Router();
+
+app.use('/', ResetRouter);
+
+ResetRouter.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build/index.html'));
 })
 
 app.listen(port, () => {

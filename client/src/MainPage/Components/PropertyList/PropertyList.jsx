@@ -30,7 +30,7 @@ function PropertyList() {
     }, [setProperties, setReviews]);
     return (
         <div className="properties-container">
-            {properties && reviews ? properties.map(property => {
+            {properties && reviews && properties.map(property => {
                 let numReviews = 0;
                 let totalRating = 0;
                 for (let i = 0; i < reviews.length; i++) {
@@ -41,7 +41,7 @@ function PropertyList() {
                 }
                 const avgRating = numReviews !== 0 ? totalRating / numReviews : 0;
                 return <Property key={property.id} id={property.id} name={property.name} address={property.address} src={property.img_url} numReviews={numReviews} rating={avgRating}/>
-            }) : console.log("loading for now")}
+            })}
 
         </div>
     )
