@@ -6,7 +6,11 @@ const devConfig = {
     password: process.env.PGPASSWORD,
     host: process.env.PGHOST,
     database: process.env.PGDATABASE,
-    port: process.env.PGPORT
+    port: process.env.PGPORT,
+    ssl: {
+        rejectUnauthorized: false,
+    }
+    
 };
 
 // const devConfig = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}:${process.env.PGHOST}:${process.env.PGPORT}:${process.env.PGDATABASE}`;
