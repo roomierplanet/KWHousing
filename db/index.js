@@ -16,7 +16,7 @@ const devConfig = {
 // const devConfig = `postgresql://${process.env.PGUSER}:${process.env.PGPASSWORD}:${process.env.PGHOST}:${process.env.PGPORT}:${process.env.PGDATABASE}`;
 
 const proConfig =  {
-    connectionString: process.env.DATABASE_URL
+    connectionString: process.env.DATABASE_URL,
     ssl: {
         rejectUnauthorized: false,
     }
