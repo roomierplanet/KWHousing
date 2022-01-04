@@ -31,6 +31,7 @@
     /* border: 1px solid red; */
     border-radius: 0 0 0.3rem 0.3rem;
     font-family: 'Poppins';
+    transform: translateY(3.5rem);
 }
 
 .search-results h1 {
