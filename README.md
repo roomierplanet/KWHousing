@@ -1,6 +1,7 @@
+ <img src="https://raw.githubusercontent.com/roomierplanet/KWHousing/main/client/public/LogoKWH.png?token=AKLDIBJM6H4D7SY5SDILYQDB3ZHVI" width="60">
+ 
+# KWHousing
 
-
-# KWHousing <img src="https://raw.githubusercontent.com/roomierplanet/KWHousing/main/client/public/LogoKWH.png?token=AKLDIBJM6H4D7SY5SDILYQDB3ZHVI" width="60" style="transform: translateY(1rem);">
 KW Housing (KWH) is an online portal listing student housing in the the Kitchener-Waterloo region.
 This project helps consolidate tenant reviews to help students make informed decisions. 
 
