@@ -80,8 +80,12 @@ Properties.put('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         const {name, address, rent_corp, img_url} = req.body;
-        const results = await db.query('UPDATE properties SET name = $1, address = $2, rent_corp = $3, img_url = $4 WHERE id = $5', [name, address, rent_corp, img_url, id]);
         if (!name || !address || !rent_corp || !img_url) throw new Error('Wrong information provided');
+        const password = Number(req.body.password);
+        if (password !== 5432) {
+            throw new Error('User not allowed');
+        }
+        const results = await db.query('UPDATE properties SET name = $1, address = $2, rent_corp = $3, img_url = $4 WHERE id = $5', [name, address, rent_corp, img_url, id]);
         if (results.rowCount === 0) throw new Error('Invalid ID provided');
         res.status(200).json({
             status: "success"
@@ -94,8 +98,12 @@ Properties.put('/:id', async (req, res) => {
 Properties.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
-        const results = await db.query('DELETE FROM properties WHERE id = $1', [id]);
         if (!id) throw new Error('Information missing for deletion');
+        const password = Number(req.body.password);
+        if (password !== 5432) {
+            throw new Error('User not allowed');
+        }
+        const results = await db.query('DELETE FROM properties WHERE id = $1', [id]);
         if (results.rowCount === 0) throw new Error('Invalid ID provided');
         res.status(204).send();
     } catch(err) {
