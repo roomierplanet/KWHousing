@@ -11,7 +11,7 @@ VALUES (
     'MyRez on Lester',
     '181 Lester St., N2L 0C2, Waterloo',
     'Off Campus Rez',
-    'https://lh3.googleusercontent.com/proxy/e_JdWXtTZSMZwALWvG8Hlt-j9nogOZbt9BjvJNzehgRxXryE9VHNZlIR6TthnVLld6pCg9FUdDla0B2OW6agsNPgOWWPC8BDV68iOw639cNhLb0W0RYzrCbvSb4ec4DlyG8TABxEHDZen1aozRS6043FG4qmuhWO4cnhGQ'
+    'https://i.pinimg.com/originals/53/01/7c/53017c43877bb793519d980ca41597db.jpg'
 );
 
 INSERT INTO properties (name, address, rent_corp, img_url)
