@@ -31,12 +31,13 @@ const getProperties = {
         return result;
     },
     async updateProperty(id, property) {
-        const {name, address, rent_corp, img_url} = property;
+        const {name, address, rent_corp, img_url, password} = property;
         const body = {
             name,
             address,
             rent_corp,
-            img_url
+            img_url,
+            password
         };
         const newURL = `${baseURL}/${id}`;
         const response = await fetch(newURL, {
@@ -47,10 +48,12 @@ const getProperties = {
         const result = await response.json();
         return result;
     },
-    async deleteProperty(id) {
+    async deleteProperty({id, password}) {
         const newURL = `${baseURL}/${id}`;
         const response = await fetch(newURL, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: {"Content-type": "application/json; charset=UTF-8"},
+            body: JSON.stringify({password: password})
         });
         const result = await response.json();
         return result;
