@@ -38,7 +38,6 @@ function Details() {
     }, [id, setProperty, setReview, addModal]);
     let numReviews, totalRating, avgRating;
     if (review) {
-        console.log(review);
         numReviews = review.length;
         totalRating = 0;
         for (let i = 0; i < numReviews; i++) {
@@ -50,6 +49,8 @@ function Details() {
     const [address, setAddress] = useState("");
     const [rentCorp, setRentCorp] = useState("");
     const [url, setUrl] = useState("");
+    const [updatePass, setUpdatePass] = useState("");
+    const [deletePass, setDeletePass] = useState("");
     const [revName, setRevName] = useState("");
     const [revRating, setRevRating] = useState();
     const [revReview, setRevReview] = useState("");
@@ -67,14 +68,19 @@ function Details() {
             name: name, 
             address: address,
             rent_corp: rentCorp,
-            img_url: url
+            img_url: url,
+            password: updatePass
         }
         await getProperties.updateProperty(id, newProperty);
         toggleUpdateModal();
     }
     const navigate = useNavigate();
     const deleteHandler = (e) => {
-        getProperties.deleteProperty(id);
+        const deleteParams = {
+            id: id,
+            password: deletePass
+        };
+        getProperties.deleteProperty(deleteParams);
         setTimeout(navigate('/properties'), 0.2);
     }
     const addReviewHandler = (e) => {
@@ -116,7 +122,7 @@ function Details() {
             </div>}
             {updateModal && 
             <div className="overlay">
-                <div className="modal">
+                <div id="update-modal">
                     <div className="top">
                         <h1>Update property</h1>
                         <button onClick={toggleUpdateModal}><img src="../closeButton.png" alt="" /></button>
@@ -126,6 +132,7 @@ function Details() {
                         <input required className="inp-field" type="text" placeholder='Address' value={address} onChange={(e) => setAddress(e.target.value)}></input>
                         <input required className="inp-field" type="text" placeholder='Renting Corporation' value={rentCorp} onChange={(e) => setRentCorp(e.target.value)}></input>
                         <input required className="inp-field" type="text" placeholder='Link to image of property' value={url} onChange={(e) => setUrl(e.target.value)}></input>
+                        <input required className="inp-field" type="text" placeholder='Password' value={updatePass} onChange={(e) => setUpdatePass(e.target.value)}></input>
                         <input type="submit" value="submit" style={{backgroundColor:'#006cff'}} onClick={updateHandler}></input>
                     </form>
                 </div>
@@ -139,6 +146,7 @@ function Details() {
                     </div>
                     <form>
                         <p id="confirmation">Are you sure you wish to delete this property?</p>
+                        <input required className="inp-field" type="text" placeholder='Password' value={deletePass} onChange={(e) => setDeletePass(e.target.value)}></input>
                         <input type="submit" value="Confirm" style={{backgroundColor: '#ff004e'}} onClick={deleteHandler}></input>
                     </form>
                 </div>
