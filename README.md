@@ -39,7 +39,10 @@ and the front-end.
 This is my first full-stack project - needless to say it has numerous ways it can be improved. Here are a few upcoming improvements:
 
 *  **Adding, Updating and Deleting Properties**\
-The current iteration of this app demonstrates the ability to make the POST, PUT AND DELETE HTTP requests to the server using these respective buttons. Clearly this is not secure for a product open to the public. The future implementation of these buttons involves the data being fed to a request table for each of the respective queries which will be pushed after being reviewed by the administrator (me!)
+The current iteration of this app demonstrates the ability to make the POST, PUT AND DELETE HTTP requests to the server using these respective buttons. Clearly this is not secure for a product open to the public. The future implementation of these buttons involves the data being fed to a request table for each of the respective queries which will be pushed after being reviewed by the administrator (me!). __Update:__ For now, I have added permission codes to each CRUD operation to disallow users from performing these operations without authorization. To test these, please email me so I can provide you with a temporary passcode.
+
+* **Responsiveness**\
+It was brought to my attention by the initial release group for this application that the website was not as resposive for mobile interfaces. I have since added various media queries for the landing page and individual property pages. However, there is still work to be done on the main page and certain other elements.
 
 * **Managing Client Files**\
 The components are designed in a way such that the front-end implementation does not contain any duplicate route. But the components for the entire application as well as the routes
