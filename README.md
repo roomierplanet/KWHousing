@@ -54,5 +54,9 @@ Since the application helps students make informed decisions about living in a c
 * **Image Hosting** \
 I am currently working on integrating the Cloudinary API to have personal storage for the images uploaded by users to the website. The current implementation stores an external URL to the image fetched by the server. This will allow for users to directly upload images to the website when requesting the addition of a property. In the future, it will also allow users to add multiple images to their reviews of properties.
 
+* **Rating a Property**\
+Although each property can be rated between 0 to 5, the web interface of this application allows users to add other invalid values. Although the reviews with invalid ratings are discarded, it is poor user experience. I aim to eliminate this issue by implementing
+an interactive rating slider with stars.
+
 # Conclusion
 This project has been a great learning experience for me. I believe it has the potential to be of great use for students in the Kitchener-Waterloo region for the years to come. Any suggestions regarding the implementation or the functionality of this application will be much appreciated!
