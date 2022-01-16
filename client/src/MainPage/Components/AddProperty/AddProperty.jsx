@@ -23,6 +23,7 @@ function AddProperty() {
     }
     const submitHandler = async (e) => {
         e.preventDefault();
+        toggleModal();
         let url = await uploadImage(file);
         const newProperty = {
             name: name,
@@ -31,7 +32,6 @@ function AddProperty() {
             img_url: url
         }
         await getProperties.addProperty(newProperty);
-        toggleModal();
     }
     return (
         <div>
