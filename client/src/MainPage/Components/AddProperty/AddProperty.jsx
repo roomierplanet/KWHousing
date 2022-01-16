@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './AddProperty.css';
 import getProperties from '../../../api/getProperties';
+import getImages from '../../../api/getImages';
 
 function AddProperty() {
     const [modal, setModal] = useState(false);
@@ -15,8 +16,14 @@ function AddProperty() {
     const [name, setName] = useState("");
     const [address, setAddress] = useState("");
     const [rentCorp, setRentCorp] = useState("");
-    const [url, setUrl] = useState("");
+    const [file, setFile] = useState();
+    const uploadImage = async file => {
+        const url = await getImages.upload(file);
+        return url;
+    }
     const submitHandler = async (e) => {
+        e.preventDefault();
+        let url = await uploadImage(file);
         const newProperty = {
             name: name,
             address: address,
@@ -37,11 +44,16 @@ function AddProperty() {
                         <h1>Add a property</h1>
                         <button onClick={toggleModal}><img src="../closeButton.png" alt="" /></button>
                     </div>
+                    
+                    <h2 className='heading'>Property Details</h2>
                     <form>
                         <input required className="inp-field" type="text" placeholder='Name' value={name} onChange={(e) => setName(e.target.value)}></input>
                         <input required className="inp-field" type="text" placeholder='Address' value={address} onChange={(e) => setAddress(e.target.value)}></input>
                         <input required className="inp-field" type="text" placeholder='Renting Corporation' value={rentCorp} onChange={(e) => setRentCorp(e.target.value)}></input>
-                        <input required className="inp-field" type="text" placeholder='Link to image of property' value={url} onChange={(e) => setUrl(e.target.value)}></input>
+                        <div className="upload-section">
+                            <h2 className='heading'>Property Image</h2>
+                            <input required type="file" placeholder="Image of Property" id='file-upload' onChange={e => setFile(e.target.files[0])}></input>
+                        </div>
                         <input type="submit" value="submit" onClick={submitHandler}></input>
                     </form>
                 </div>
