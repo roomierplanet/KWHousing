@@ -34,6 +34,11 @@ Overall, this stack has been a great choice for an application of this design. I
 written for the functionality provided. It is very modular and is open to design changes on both the back-end
 and the front-end.
 
+# Latest Changes
+
+* **Image Hosting** \
+As of 15th January 2021, images uploaded to the website are now stored using the Cloudinary CDN. Earlier, users were able to only provide URLs to their images which was not very friendly. Upcoming changes include addition of image_id to the database so it can deleted once the property is deleted.
+
 
 # Improvements / Upcoming Changes
 This is my first full-stack project - needless to say it has numerous ways it can be improved. Here are a few upcoming improvements:
@@ -50,9 +55,6 @@ are currently stored in the MainPage folder. It is clear how this can cause issu
 
 * **User authentication** \
 Since the application helps students make informed decisions about living in a certain residence for an extended period of time, it is of utmost importance for reviews to be added by users. This avoids duplicaion of reviews and other malicious intentions protected by anonymity
-
-* **Image Hosting** \
-As of 15th January 2021, images uploaded to the website are now stored using the Cloudinary CDN. Earlier, users were able to only provide URLs to their images which was not very friendly. Upcoming changes include addition of image_id to the database so it can deleted once the property is deleted.
 
 * **Rating a Property**\
 Although each property can be rated between 0 to 5, the web interface of this application allows users to add other invalid values. Although the reviews with invalid ratings are discarded, it is poor user experience. I aim to eliminate this issue by implementing

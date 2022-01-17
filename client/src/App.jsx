@@ -1,8 +1,8 @@
 import React from 'react'
-import LandingPage from './LandingPage';
+import LandingPage from './Routes/LandingPage/LandingPage';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import MainPage from './MainPage/MainPage';
-import Details from './MainPage/Routes/Details/Details';
+import MainPage from './Routes/MainPage/MainPage';
+import Details from './Routes/Details/Details';
 import { PropertiesContextProvider } from './Context/PropertiesContext';
 
 function App() {

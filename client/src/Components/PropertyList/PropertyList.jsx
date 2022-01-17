@@ -1,9 +1,9 @@
 import React, {useEffect, useContext} from 'react';
-import getProperties from '../../../api/getProperties';
+import getProperties from '../../api/getProperties';
 import Property from './Property/Property';
 import './PropertyList.css';
-import { PropertiesContext } from '../../../Context/PropertiesContext';
-import getReviews from '../../../api/getReviews';
+import { PropertiesContext } from '../../Context/PropertiesContext';
+import getReviews from '../../api/getReviews';
 
 function PropertyList() {
     const {properties, setProperties} = useContext(PropertiesContext);

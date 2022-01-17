@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './AddProperty.css';
-import getProperties from '../../../api/getProperties';
-import getImages from '../../../api/getImages';
+import getProperties from '../../api/getProperties';
+import getImages from '../../api/getImages';
 
 function AddProperty() {
     const [modal, setModal] = useState(false);

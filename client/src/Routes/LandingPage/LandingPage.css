@@ -4,7 +4,6 @@
 }
 
 .canvas {
-    background-image: url('../public/LPage.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
