@@ -52,7 +52,7 @@ function AddProperty() {
                         <input required className="inp-field" type="text" placeholder='Renting Corporation' value={rentCorp} onChange={(e) => setRentCorp(e.target.value)}></input>
                         <div className="upload-section">
                             <h2 className='heading'>Property Image</h2>
-                            <input required type="file" placeholder="Image of Property" id='file-upload' onChange={e => setFile(e.target.files[0])}></input>
+                            <input required type="file" accept='.jpg, .jpeg, .png' placeholder="Image of Property" id='file-upload' onChange={e => setFile(e.target.files[0])}></input>
                         </div>
                         <input type="submit" value="submit" onClick={submitHandler}></input>
                     </form>
