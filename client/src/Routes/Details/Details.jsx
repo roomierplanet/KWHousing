@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, Link } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar';
 import getProperties from '../../api/getProperties';
 import { PropertiesContext } from '../../Context/PropertiesContext';
@@ -105,6 +105,9 @@ function Details() {
     return (
         <div>
             <NavBar />
+            <div className="go-back">
+                    <Link to="/properties" style={{color:'white'}}> &#60; Go  Back</Link>
+            </div>
             {property &&
             <div className="details-section">
                 <div className='image'>
