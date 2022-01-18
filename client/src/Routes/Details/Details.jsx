@@ -7,6 +7,7 @@ import './Details.css';
 import Review from '../../Components/Review/Review';
 import Rating from '../../Components/Rating/Rating';
 import getReviews from '../../api/getReviews';
+import InteractiveRating from '../../Components/InteractiveRating/InteractiveRating';
 
 function Details() {
     const params = useParams();
@@ -16,6 +17,7 @@ function Details() {
     const [updateModal, setUpdateModal] = useState(false);
     const [deleteModal, setDeleteModal] = useState(false);
     const [addModal, setAddModal] = useState(false);
+    const [revRating, setRevRating] = useState(0);
     useEffect(() => {
         const fetchProperty = async () => {
             try {
@@ -52,7 +54,6 @@ function Details() {
     const [updatePass, setUpdatePass] = useState("");
     const [deletePass, setDeletePass] = useState("");
     const [revName, setRevName] = useState("");
-    const [revRating, setRevRating] = useState();
     const [revReview, setRevReview] = useState("");
     const toggleUpdateModal = () => {
         setUpdateModal(!updateModal);
@@ -82,6 +83,9 @@ function Details() {
         };
         getProperties.deleteProperty(deleteParams);
         setTimeout(navigate('/properties'), 0.2);
+    }
+    const revRatingHandler = (val) => {
+        setRevRating(val);
     }
     const addReviewHandler = (e) => {
         let newReview = {};
@@ -167,8 +171,9 @@ function Details() {
                         <input required type='text' className='inp-field review-inp' placeholder='Your name'
                         value={revName} onChange={e => setRevName(e.target.value)}></input>
                         <p className='review-labels'>Rating<span style={{color: 'red'}}>*</span></p>
-                        <input required type='number' className='inp-field review-inp' placeholder='Your rating' min='1' max='5'
-                        value={revRating} onChange={e => setRevRating(e.target.value)}></input>
+                        <InteractiveRating handler={revRatingHandler}/>
+                        {/* <input required type='number' className='inp-field review-inp' placeholder='Your rating' min='1' max='5'
+                        value={revRating} onChange={e => setRevRating(e.target.value)}></input> */}
                         <p className='review-labels'>Review</p>
                         <textarea className='inp-field' placeholder='Your Review!'
                         value={revReview} onChange={e => setRevReview(e.target.value)}></textarea>
@@ -187,7 +192,7 @@ function Details() {
                                 
                             <Rating rating={avgRating}/>
                             </div>
-                            <h2>{avgRating} out of 5</h2>
+                            <h2>{Math.round((avgRating + Number.EPSILON) * 100) / 100} out of 5</h2>
                         </div>
                         <h2 id="numratings">{numReviews} total ratings</h2>
                         <div className="divider"></div>
