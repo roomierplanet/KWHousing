@@ -5,7 +5,6 @@ import Rating from '../../Rating/Rating';
 function Property(props) {
     let navigate = useNavigate()
     const displayDetails = e => {
-        console.log("displayDetails called");
         const id = props.id;
         navigate(`/properties/${id}`);
     }
