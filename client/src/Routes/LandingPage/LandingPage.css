@@ -51,9 +51,10 @@
 
 @media only screen and (max-width: 820px) {
     #title {
-        font-size: 2rem;
+        font-size: 1.6rem;
     }
     .btn {
-        width: 14rem;
+        width: 12rem;
+        font-size: 1rem;
     }
 }
