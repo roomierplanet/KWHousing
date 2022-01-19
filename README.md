@@ -67,7 +67,7 @@ It was brought to my attention by the initial release group for this application
 * **User authentication** \
 Since the application helps students make informed decisions about living in a certain residence for an extended period of time, it is of utmost importance for reviews to be added by users. This avoids duplicaion of reviews and other malicious intentions protected by anonymity
 <br>
-<br><br>
+<br>
 
 # Conclusion
 This project has been a great learning experience for me. I believe it has the potential to be of great use for students in the Kitchener-Waterloo region for the years to come. Any suggestions regarding the implementation or the functionality of this application will be much appreciated!
