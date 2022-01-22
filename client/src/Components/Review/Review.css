@@ -23,3 +23,18 @@
 #review-content {
     margin-top: 0.2rem;
 }
+
+
+@media only screen and (max-width: 920px) {
+    .review-card {
+        width: 70%;
+        margin: 0 0 1rem 2.5rem;
+        align-self: flex-start;
+    }
+    .review-card h1 {
+        font-size: 1rem;
+    }
+    #review-date, #review-content {
+        font-size: 0.7rem;
+    }
+}
