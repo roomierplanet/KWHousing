@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react'
-import { useNavigate, useParams, Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import NavBar from '../../Components/NavBar/NavBar';
 import getProperties from '../../api/getProperties';
 import { PropertiesContext } from '../../Context/PropertiesContext';
