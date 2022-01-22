@@ -8,7 +8,9 @@ function Review(props) {
     return (
         <div className='review-card'>
             <h1>{props.name}</h1>
-            <Rating rating={props.rating} />
+            <div id="review-rating">
+                <Rating rating={props.rating} />
+            </div>
             <p id="review-date">Reviewed on {date}</p>
             <p id="review-content">{props.review}</p>
         </div>
