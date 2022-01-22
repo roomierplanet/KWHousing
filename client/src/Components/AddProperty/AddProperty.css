@@ -41,7 +41,7 @@
 .modal {
     margin: 0 auto;
     height: 29rem;
-    width: 40rem;
+    width: 60%;
     background-color: #eeeeee;
     padding: 1.5rem;
     border-radius: 1.3rem;
@@ -139,4 +139,16 @@ input[type=file]::file-selector-button {
 input[type=file] {
     font-family: 'Poppins';
     font-size: 1rem;
+}
+
+
+@media only screen and (max-width: 700px) {
+    .add-property button{
+        font-size: 0.8rem;
+    }
+    .modal {
+        z-index: 1;
+        height: 30rem;
+        width: 80%;
+    }
 }
