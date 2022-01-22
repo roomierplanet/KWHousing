@@ -16,7 +16,10 @@ function Property(props) {
             <div className="property-details">
                 <h2 id="name">{props.name}</h2>
                 <h3 id="address">{props.address}</h3>
+                <div id="rating">
                 <Rating rating={props.rating}/>
+                </div>
+                
                 <p id="num-reviews">{props.numReviews} Reviews</p>
             </div>
         </div>
