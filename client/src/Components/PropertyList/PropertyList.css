@@ -14,7 +14,7 @@
     width: 90%;
     height: 15rem;
     border-radius: 0.8rem;
-    background-color: rgb(39, 39, 39);
+    background-color: rgb(26, 26, 26);
     display: flex;
     /* border: 1px solid blue; */
     box-shadow: 0 0.6rem 1.5rem rgba(0,0,0,0.4);
@@ -22,8 +22,8 @@
 }
 
 .property:hover {
-    background-color: rgb(56, 56, 56);
-    transition: background-color 0.4s ease-in;
+    background-color: rgb(0, 0, 0);
+    transition: background-color 0.2s ease-in;
 }
 
 .property-image {
@@ -82,5 +82,40 @@
 @media only screen and (max-width: 1340px) {
     .properties-container {
         grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    i.fas, i.far{
+        color: #ffc107;
+        font-size: 0.75rem;
+    }
+    .properties-container {
+        padding-top: 2rem;
+    }
+    .property {
+        height: 10rem;
+        width: 100%;
+    }
+    .property-details {
+        /* justify-content: flex-start; */
+        margin-left: -1rem;
+        padding: 1rem;
+    }
+    .property-details #name {
+        margin-top: -0.5rem;
+        font-size: 1rem;
+    }
+    .property-details #address {
+        font-size: 0.7rem;
+    }
+    .property-details #rating {
+        /* transform: scale(0.8);
+        transform-origin: left; */
+        margin-top: -0.5rem;
+    }
+    .property-details #num-reviews  {
+        font-size: 0.6rem;
+        margin-top: 0.3rem;
     }
 }
