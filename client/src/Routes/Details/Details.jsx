@@ -109,9 +109,9 @@ function Details() {
     return (
         <div>
             <NavBar />
-            <div className="go-back">
+            {/* <div className="go-back">
                     <Link to="/properties" style={{color:'white'}}> &#60; Go  Back</Link>
-            </div>
+            </div> */}
             {property &&
             <div className="details-section">
                 <div className='image'>
@@ -128,7 +128,7 @@ function Details() {
                 </div>
             </div>}
             {updateModal && 
-            <div className="overlay">
+            <div className="overlay" id="details-modal">
                 <div id="update-modal">
                     <div className="top">
                         <h1>Update property</h1>
@@ -186,6 +186,7 @@ function Details() {
             {property && review &&
                 <div className="review-section">
                     <div className="review-header">
+                    <div className="divider"></div>
                         <h1>Resident Reviews</h1>
                         <div id="rating">
                             <div className="rating-container">
@@ -195,7 +196,7 @@ function Details() {
                             <h2>{Math.round((avgRating + Number.EPSILON) * 100) / 100} out of 5</h2>
                         </div>
                         <h2 id="numratings">{numReviews} total ratings</h2>
-                        <div className="divider"></div>
+                        {/* <div className="divider"></div> */}
                     </div>
                     <div className="add-review">
                         <button onClick={toggleAddModal}>Add Review</button>
