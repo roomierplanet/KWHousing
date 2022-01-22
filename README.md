@@ -43,13 +43,17 @@ and the front-end.
 # Latest Changes
 This application is in a state of continuous development. This section keeps track of the latest changes to KWH, sorted from new to old.
 
-*Latest Update: 18th January*
+*Latest Update: 22nd January*
+
+* **Responsive Design**\
+KWH is now optimized for all screen resolutions and aspect ratios. All features/information is conserved on each resoution. Try it out on Mobile today!
 
 * **Interactive Rating Component**\
 Nobody wants to type out their rating! The new implementation allows users to visualize the rating they are giving. 
 
 * **Image Hosting** \
 As of 15th January 2021, images uploaded to the website are now stored using the Cloudinary CDN. Earlier, users were able to only provide URLs to their images which was not very friendly. Upcoming changes include addition of image_id to the database so it can deleted once the property is deleted.
+
 <br>
 <br>
 
@@ -60,9 +64,6 @@ This is my first full-stack project - needless to say it has numerous ways it ca
 
 *  **Adding, Updating and Deleting Properties**\
 The current iteration of this app demonstrates the ability to make the POST, PUT AND DELETE HTTP requests to the server using these respective buttons. Clearly this is not secure for a product open to the public. The future implementation of these buttons involves the data being fed to a request table for each of the respective queries which will be pushed after being reviewed by the administrator (me!). __Update:__ For now, I have added permission codes to each CRUD operation to disallow users from performing these operations without authorization. To test these, please email me so I can provide you with a temporary passcode.
-
-* **Responsiveness**\
-It was brought to my attention by the initial release group for this application that the website was not as resposive for mobile interfaces. I have since added various media queries for the landing page and individual property pages. However, there is still work to be done on the main page and certain other elements.
 
 * **User authentication** \
 Since the application helps students make informed decisions about living in a certain residence for an extended period of time, it is of utmost importance for reviews to be added by users. This avoids duplicaion of reviews and other malicious intentions protected by anonymity
