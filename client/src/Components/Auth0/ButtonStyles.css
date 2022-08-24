@@ -1,0 +1,21 @@
+.auth0-button {
+    background: rgb(26, 26, 26);
+    margin-right: 3rem;
+    color: white;
+    border-radius: 0.5rem;
+    width: 8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.8rem;
+}
+
+.auth0-button p {
+    font-size: 1rem;
+}
+
+.auth0-button:hover {
+    cursor: pointer;
+    background: black;
+    transition: background-color 0.5s ease-in-out;
+}
