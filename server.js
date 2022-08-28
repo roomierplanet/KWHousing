@@ -153,12 +153,12 @@ Reviews.get('/:property_id', async (req, res) => {
 
 Reviews.post('/', async (req, res) => {
     try {
-        const {name, rating, review, property_id} = req.body;
-        if (!name || !rating || !property_id) throw new Error('Incomplete/Invalid information provided');
+        const {name, rating, review, property_id, user_id} = req.body;
+        if (!name || !rating || !property_id || !user_id) throw new Error('Incomplete/Invalid information provided');
         if (!review) {
-            await db.query('INSERT INTO reviews(name, rating, property_id) VALUES($1, $2, $3)', [name, rating, property_id]);
+            await db.query('INSERT INTO reviews(name, user_id, rating, property_id) VALUES($1, $2, $3, $4)', [name, user_id, rating, property_id]);
         } else {
-            await db.query('INSERT INTO reviews(name, rating, review, property_id) VALUES($1, $2, $3, $4)', [name, rating, review, property_id]);
+            await db.query('INSERT INTO reviews(name, user_id, rating, review, property_id) VALUES($1, $2, $3, $4, $5)', [name, user_id, rating, review, property_id]);
         }
         res.status(200).json({
             status: "success"

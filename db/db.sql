@@ -11,7 +11,7 @@ VALUES (
     'MyRez on Lester',
     '181 Lester St., N2L 0C2, Waterloo',
     'Off Campus Rez',
-    'https://i.pinimg.com/originals/53/01/7c/53017c43877bb793519d980ca41597db.jpg'
+    'https://res.cloudinary.com/arnavnagpal/image/upload/v1660188237/Exterior-05-myREZ-on-Lester_ge7dcm.jpg'
 );
 
 INSERT INTO properties (name, address, rent_corp, img_url)
@@ -19,7 +19,7 @@ VALUES (
     '201 Lester St.',
     '201 Lester St., N2L 3V6, Waterloo',
     'Accomod8u',
-    'https://static.wixstatic.com/media/29eef9_6fbb7d55b0774ba4be939ca5bad4e1d4~mv2.jpg/v1/fill/w_640,h_400,al_c,q_80,usm_0.66_1.00_0.01/29eef9_6fbb7d55b0774ba4be939ca5bad4e1d4~mv2.webp'
+    'https://res.cloudinary.com/arnavnagpal/image/upload/v1660188164/29eef9_5b8ea418f5bf464c97690cf46e491844_mv2_jvhzp3.jpg'
 );
 
 INSERT INTO properties (name, address, rent_corp, img_url)
@@ -27,7 +27,7 @@ VALUES (
     '255 Sunview St.',
     '255 Sunview St., N2L 3V8, Waterloo',
     'Accomod8u',
-    'https://cf.bstatic.com/xdata/images/hotel/max1024x768/280711634.jpg?k=59b4fa26353d9d42fd0c3fb58c8333d7d4732bfa527ead445cd563596ac80c35&o=&hp=1'
+    'https://res.cloudinary.com/arnavnagpal/image/upload/v1660188252/546_13__1_odxy6y.jpg'
 );
 
 INSERT INTO properties (name, address, rent_corp, img_url)
@@ -35,7 +35,7 @@ VALUES (
     'Rez-One: Hespeler House',
     '252 Philip St., N2L 0E2, Waterloo',
     'Rez-One',
-    'https://www.jddevelopment.ca/media/files/2020/Hespeler%20House[2].png'
+    'https://res.cloudinary.com/arnavnagpal/image/upload/v1660188207/fergushouse_rzl0ax.jpg'
 );
 
 INSERT INTO properties (name, address, rent_corp, img_url)
@@ -43,12 +43,13 @@ VALUES (
     'Icon 330',
     '252 Philip St., N2L 3W9, Waterloo',
     'Icon',
-    'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.under-thesun.ca%2F2019%2F08%2Ficon.html&psig=AOvVaw3x98vXDzo0R1BgoCjHqeuL&ust=1641360413524000&source=images&cd=vfe&ved=0CAsQjRxqFwoTCPjF75Wul_UCFQAAAAAdAAAAABAJ'
+    'https://res.cloudinary.com/arnavnagpal/image/upload/v1660188196/maxresdefault_d6i2zh.jpg'
 );
 
 CREATE TABLE reviews (
     id BIGSERIAL PRIMARY KEY,
     name varchar(100) NOT NULL,
+    user_id varchar(100) NOT NULL,
     rating integer CHECK(rating >= 1 AND rating <= 5) NOT NULL,
     review text,
     review_date date NOT NULL DEFAULT CURRENT_DATE,
@@ -61,8 +62,8 @@ FOREIGN KEY(property_id)
 REFERENCES properties(id)
 ON DELETE CASCADE;
 
-INSERT INTO reviews (name, rating, review, property_id) 
-VALUES ('Arnav Nagpal', 4, 'Sweet people, study rooms are pretty cool, and the location is great!', 5);
+INSERT INTO reviews (name, user_id, rating, review, property_id) 
+VALUES ('Arnav Nagpal', 'google-oauth2|117396793460697106457', 4, 'Sweet people, study rooms are pretty cool, and the location is great!', 5);
 
 
 INSERT INTO reviews (name, rating, review, property_id) 
