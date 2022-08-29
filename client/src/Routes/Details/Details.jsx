@@ -8,10 +8,12 @@ import Review from '../../Components/Review/Review';
 import Rating from '../../Components/Rating/Rating';
 import getReviews from '../../api/getReviews';
 import InteractiveRating from '../../Components/InteractiveRating/InteractiveRating';
+import { useAuth0 } from "@auth0/auth0-react";
 
 function Details() {
     const params = useParams();
     const id = Number(params.id);
+    const {user, isAuthenticated} = useAuth0();
     const {property, setProperty} = useContext(PropertiesContext)
     const {review, setReview} = useContext(PropertiesContext);
     const [updateModal, setUpdateModal] = useState(false);
@@ -53,7 +55,6 @@ function Details() {
     const [url, setUrl] = useState("");
     const [updatePass, setUpdatePass] = useState("");
     const [deletePass, setDeletePass] = useState("");
-    const [revName, setRevName] = useState("");
     const [revReview, setRevReview] = useState("");
     const toggleUpdateModal = () => {
         setUpdateModal(!updateModal);
@@ -62,7 +63,12 @@ function Details() {
         setDeleteModal(!deleteModal);
     }
     const toggleAddModal = () => {
-        setAddModal(!addModal);
+        if (isAuthenticated) {
+            setAddModal(!addModal);
+        } else {
+            console.log("user not authenticated");
+        }
+        
     }
     const updateHandler = async (e) => {
         const newProperty = {
@@ -89,16 +95,18 @@ function Details() {
     }
     const addReviewHandler = (e) => {
         let newReview = {};
-        if (revRating) {
+        if (revReview) {
             newReview = {
-                name: revName,
+                name: user.name,
+                user_id: user.sub,
                 rating: revRating,
                 review: revReview,
                 property_id: property.id
             }
         } else {
             newReview = {
-                name: revName,
+                name: user.name,
+                user_id: user.sub,
                 rating: revRating,
                 property_id: property.id
             }
@@ -167,9 +175,9 @@ function Details() {
                             <button onClick={toggleAddModal}><img src="../closeButton.png" alt="" /></button>
                     </div>
                     <form className='add-review-form'>
-                        <p className='review-labels'>Name<span style={{color: 'red'}}>*</span></p>
-                        <input required type='text' className='inp-field review-inp' placeholder='Your name'
-                        value={revName} onChange={e => setRevName(e.target.value)}></input>
+                        {/* <p className='review-labels'>Name<span style={{color: 'red'}}>*</span></p> */}
+                        {/* <input required type='text' className='inp-field review-inp' placeholder='Your name'
+                        value={revName} onChange={e => setRevName(e.target.value)}></input> */}
                         <p className='review-labels'>Rating<span style={{color: 'red'}}>*</span></p>
                         <InteractiveRating handler={revRatingHandler}/>
                         {/* <input required type='number' className='inp-field review-inp' placeholder='Your rating' min='1' max='5'

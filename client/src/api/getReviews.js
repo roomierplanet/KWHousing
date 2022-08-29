@@ -17,6 +17,7 @@ const getReviews = {
     async addReview(review) {
         const body = {
             name: review.name, 
+            user_id: review.user_id,
             rating: review.rating, 
             review: review.review,
             property_id: review.property_id
