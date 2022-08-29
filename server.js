@@ -81,8 +81,8 @@ Properties.put('/:id', async (req, res) => {
         const id = req.params.id;
         const {name, address, rent_corp, img_url} = req.body;
         if (!name || !address || !rent_corp || !img_url) throw new Error('Wrong information provided');
-        const password = Number(req.body.password);
-        if (password !== 5432) {
+        const password = req.body.password;
+        if (password !== process.env.PASSWORD) {
             throw new Error('User not allowed');
         }
         const results = await db.query('UPDATE properties SET name = $1, address = $2, rent_corp = $3, img_url = $4 WHERE id = $5', [name, address, rent_corp, img_url, id]);
@@ -99,8 +99,8 @@ Properties.delete('/:id', async (req, res) => {
     try {
         const id = req.params.id;
         if (!id) throw new Error('Information missing for deletion');
-        const password = Number(req.body.password);
-        if (password !== 5432) {
+        const password = req.body.password;
+        if (password !== process.env.PASSWORD) {
             throw new Error('User not allowed');
         }
         const results = await db.query('DELETE FROM properties WHERE id = $1', [id]);
@@ -154,6 +154,7 @@ Reviews.get('/:property_id', async (req, res) => {
 Reviews.post('/', async (req, res) => {
     try {
         const {name, rating, review, property_id, user_id} = req.body;
+        console.log(user_id);
         if (!name || !rating || !property_id || !user_id) throw new Error('Incomplete/Invalid information provided');
         if (!review) {
             await db.query('INSERT INTO reviews(name, user_id, rating, property_id) VALUES($1, $2, $3, $4)', [name, user_id, rating, property_id]);
