@@ -9,7 +9,7 @@ import Rating from '../../Components/Rating/Rating';
 import getReviews from '../../api/getReviews';
 import InteractiveRating from '../../Components/InteractiveRating/InteractiveRating';
 import { useAuth0 } from "@auth0/auth0-react";
-// import {Alert, Snackbar} from '@mui/material';
+import {Alert, Snackbar} from '@mui/material';
 
 function Details() {
     const params = useParams();
@@ -238,11 +238,11 @@ function Details() {
                     </div>
                 </div>
             }
-            {/* <Snackbar open={reviewError.state} autoHideDuration={3000} onClose={(e) => setReviewError(reviewError => {return {...reviewError, state: false}})}>
+            <Snackbar open={reviewError.state} autoHideDuration={3000} onClose={(e) => setReviewError(reviewError => {return {...reviewError, state: false}})}>
             <Alert severity="error" sx={{ width: '100%' }} onClose={(e) => setReviewError(reviewError => {return {...reviewError, state: false}})}>
                     {reviewError.message}
             </Alert>
-        </Snackbar> */}
+        </Snackbar>
         </div>
     )
 }
