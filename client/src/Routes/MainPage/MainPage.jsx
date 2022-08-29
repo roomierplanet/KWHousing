@@ -8,7 +8,7 @@ function MainPage() {
     return (
         <div>
             <NavBar />
-            <AddProperty />
+            {/* <AddProperty /> */}
             <PropertyList />
         </div>
     )
