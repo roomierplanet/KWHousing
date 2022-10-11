@@ -4,7 +4,7 @@ on:
     branches: [main]
 
 jobs:
-  continuous-deployment
+  continuous-deployment:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
