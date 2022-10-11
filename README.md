@@ -5,7 +5,7 @@
 KW Housing (KWH) is an online portal listing student housing in the the Kitchener-Waterloo region.
 This project helps consolidate tenant reviews to help students make informed decisions. 
 
-Deployment Link - https://kwhousing.herokuapp.com
+Deployment Link - https://kwhousing.live
 <br>
 <br>
 
