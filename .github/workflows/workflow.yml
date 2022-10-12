@@ -27,6 +27,6 @@ jobs:
       run: |
         aws deploy create-deployment \
           --application-name KWHousing \
-          --deployment-group-name KWHDeploymentD \
+          --deployment-group-name KWHDeploymentGroup \
           --deployment-config-name CodeDeployDefault.OneAtATime \
           --github-location repository=${{ github.repository }},commitId=${{ github.sha }}
